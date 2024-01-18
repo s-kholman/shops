@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Seeder;
+use function Symfony\Component\Translation\t;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            CategorySeeder::class,
+            FeatureSeeder::class,
+            ProductSeeder::class,
+            MeaningSeeder::class
+        ]);
+
         // User::factory(10)->create();
     }
 }
