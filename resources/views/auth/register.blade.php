@@ -108,8 +108,16 @@
                                 <button type="submit" class="btn btn-primary">
                                    Регистрация
                                 </button>
+
+                                    <a class="btn btn-primary" href="/">
+                                        На главную
+                                    </a>
+
                             </div>
+
+
                         </div>
+
                     </form>
                 </div>
             </div>

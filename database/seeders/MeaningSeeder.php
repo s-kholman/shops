@@ -19,13 +19,17 @@ class MeaningSeeder extends Seeder
     {
         $faker = Factory::create();
 
+
         foreach (Product::all() as $value)
         {
             for ($i=0; $i<rand(1,10); $i++)
             {
-                Meaning::query()->create([
-                        'product_id' => $value->id,
+                Meaning::query()->firstOrCreate(
+                    [
                         'feature_id' => Features::query()->inRandomOrder()->limit(1)->value('id'),
+                        'product_id' => $value->id,
+                    ],
+                    [
                         'property' => $faker->randomLetter
                 ]
 

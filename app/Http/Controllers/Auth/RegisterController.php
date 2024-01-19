@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
@@ -50,6 +51,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['email'] = Str::lower($data['email']);
 
         return Validator::make($data, [
             'last_name' => 'required|string|max:255',
@@ -57,10 +59,10 @@ class RegisterController extends Controller
             'middle_name' => 'nullable|string|max:255',
             'phone' => 'regex:/^\+7\d{10}/|max:12|min:12',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required','string',Password::min(6)->mixedCase()->letters()->symbols(),'confirmed'],
+            'password' => ['required','string','regex:/[a-zA-Z\d.,;:&()*%#!\s-]$/',Password::min(6)->mixedCase()->letters()->symbols(),'confirmed'],
         ]);
     }
-
+///^[a-zA-Zа-яА-Я
     /**
      * Create a new user instance after a valid registration.
      *

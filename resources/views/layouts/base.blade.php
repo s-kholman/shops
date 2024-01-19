@@ -41,14 +41,16 @@
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
 
+                @yield('menu')
 
-
-s
             </div>
         </div>
-        <div class="col py-3">
+        <div class="col-7 py-3">
             @yield('info')
             @yield('content')
+        </div>
+        <div class="col-2 py-3">
+            @yield('feature')
         </div>
     </div>
 </div>

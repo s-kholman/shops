@@ -57,11 +57,11 @@
                                     Авторизация
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Забыли пароль?
+
+                                    <a class="btn btn-link" href="/register">
+                                        Регистрация
                                     </a>
-                                @endif
+
                             </div>
                         </div>
                     </form>
